@@ -8,7 +8,7 @@ app.use(cors())
 app.use(express.json())
 
 const _dirname = path.dirname("")
-const buildPath = path.join(_dirname, "../frontend/build")
+const buildPath = path.join(_dirname, "../backend/build")
 app.use(express.static(buildPath))
 
 app.get("/api/test", (req, res)=>{
@@ -18,7 +18,7 @@ app.get("/api/test", (req, res)=>{
 
 app.get('*', (req, res) => {
     res.sendFile(
-        path.join(__dirname, "../frontend/build/index.html"),
+        path.join(__dirname, "../backend/build/index.html"),
         function (err) {
             if(err) {
                 res.status(500).send(err)
